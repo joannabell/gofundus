@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sponsor_id: MyString
+  sponsorship_id: MyString
+
+two:
+  sponsor_id: MyString
+  sponsorship_id: MyString
