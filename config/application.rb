@@ -18,5 +18,15 @@ module GofundusBackend
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    # This is set in apps generated with the --api flag, and removes session/cookie middleware
+    config.api_only = true
+
+    # ▾ Must add these lines! ▾
+    # Adding back cookies and session middleware
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+
+    # Use SameSite=Strict for all cookies to help protect against CSRF
+    config.action_dispatch.cookies_same_site_protection = :strict
   end
 end
