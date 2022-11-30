@@ -1,0 +1,23 @@
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    background-color: rgb(84, 177, 214);
+    height: 100px
+}
+
+.navbar h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 38px;
+}
+
+.nav-links a{
+    color:rgb(3, 3, 3);
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 17px;
+}

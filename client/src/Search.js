@@ -1,14 +1,17 @@
 import React from "react";
+import "./Search.css"
 
-function Search({searchTerm, setSearchTerm}) {
-  return (
-    <div className="ui search">
-      <div className="ui icon input">
-        <input className="prompt" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
-        <i className="search icon" />
-      </div>
-    </div>
-  );
+function Search({handleSearchChange, searchValue}) {
+
+
+    return (
+        <div className="search">
+            <form className="search-bar">
+                <input type="text" placeholder="Search sponsorship opportunities..." value={searchValue} onChange={handleSearchChange}/>
+            </form>
+        </div>
+    )
+
 }
 
-export default Search;
+export default Search

@@ -1,0 +1,72 @@
+#home-page-container body {
+    /* position: absolute;
+    /* width: 450px;
+    height: 500px;  */
+    /*top: 25%;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto; */
+background-color: #FFFFFF;
+   
+}
+
+#home-page-container h1 {
+    padding-top: 160px;
+    padding-bottom: 20px;
+    font-size: 85px;
+    left: 40%;
+    margin: auto;
+    font-family: 'Arial', sans-serif;
+}
+
+#enter-btn {
+  align-items: center;
+  position: relative;
+  margin-top: 400px;
+  margin: 0 auto;
+
+}
+
+
+/* CSS */
+#enter-btn {
+  appearance: none;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  border-radius: .375em;
+  box-shadow: none;
+  box-sizing: border-box;
+  color: #363636;
+  cursor: pointer;
+  font-family: 'Arial', sans-serif;
+  font-size: 1rem;
+  height: 2.5em;
+  line-height: 1.5;
+  padding: calc(.5em - 1px) 1em;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: top;
+  white-space: nowrap;
+  width: 200px;
+  margin-top: 20px;
+}
+
+.button-60:active {
+  border-color: #4a4a4a;
+  outline: 0;
+}
+
+.button-60:focus {
+  border-color: #000107;
+  outline: 0;
+}
+
+.button-60:hover {
+  border-color: #b5b5b5;
+}
+
+.button-60:focus:not(:active) {
+  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+}

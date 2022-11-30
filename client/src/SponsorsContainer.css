@@ -1,0 +1,28 @@
+.sponsor {
+    border-top: rgb(130, 130, 130) solid 2px;
+    display: flexbox;
+    flex-wrap: wrap;
+    padding: 10px 20px 10px 20px;
+    margin-top: 50px;
+}
+
+.sponsors {
+    margin-top: 120px;
+}
+
+.new-sponsor {
+    margin: 20px;
+    position: relative;
+
+}
+
+h2 {
+    margin-top: 0;
+    font-size: 38px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.footer {
+    height: 100px;
+}

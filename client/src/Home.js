@@ -1,42 +1,20 @@
-// this is the parent component
-import "./App.css";
-import React, { useState, useEffect } from "react";
-import Sponsorships from "./Sponsorships.js";
-import SponsorshipForm from "./SponsorshipForm";
-import Search from "./Search";
-// import Header from "./Header";
+import React from 'react';
+import { useNavigate } from "react-router-dom"
+import "./Home.css";
 
-function Home() {
-  const [sponsorships, setSponsorships] = useState([])
-  const [searchTerm, setSearchTerm] = useState("")
+export default function Home() {
+    const history = useNavigate();
+    
+    const handleEnter = () => {
+        history.push("/sponsorships")
+    }
+    
 
-  useEffect(() => {
-    fetch("/sponsorships")
-      .then(resp => resp.json())
-      .then(setSponsorships)
-  }, [])
-
-  const filteredSponsorships = sponsorships.filter(sponsorship => sponsorship.name.toLowerCase().includes(searchTerm.toLowerCase()))
-
-  const addNewSponsorship = (newSponsorship) => {
-    setSponsorships([...sponsorships, newSponsorship])
-  }
-
-  return (
-    <>
-      <div className="App">
-        {/* <div className="App-header">
-          <Header />
-        </div> */}
-        <br />
-        <SponsorshipForm addNewSponsorship={addNewSponsorship} />
-        <br />
-        <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <br />
-        <Sponsorships sponsorship={filteredSponsorships} />
-      </div>
-    </>
-  );
+    return (
+            <div id="home-page-container">
+                <h1>GoFundUs</h1>
+                <img src="https://www.shutterstock.com/image-photo/donation-jar-copy-space-fundraiser-260nw-656980429.jpg" alt="A New Way To Donate" />
+                <p onClick={handleEnter} id="enter-btn">Enter</p>
+            </div>
+    )
 }
-
-export default Home;

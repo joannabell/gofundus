@@ -1,13 +1,42 @@
-import React from "react";
-import { Card } from "semantic-ui-react";
+// // this is the parent component
+// import "./App.css";
+// import React, { useState, useEffect } from "react";
+// import Sponsorships from "./Sponsorships.js";
+// import SponsorshipForm from "./SponsorshipForm";
+// import Search from "./Search";
+// import Header from "./Header";
 
-function Sponsorships({sponsorships}) {
-  return (
-    <Card.Group itemsPerRow={6}>
-      <h1>Header</h1>
+// function Home() {
+//   const [sponsorships, setSponsorships] = useState([])
+//   const [searchTerm, setSearchTerm] = useState("")
 
-    </Card.Group>
-  );
-}
+//   useEffect(() => {
+//     fetch("/sponsorships")
+//       .then(resp => resp.json())
+//       .then(setSponsorships)
+//   }, [])
 
-export default Sponsorships;
+//   const filteredSponsorships = sponsorships.filter(sponsorships => sponsorships.name.toLowerCase().includes(searchTerm.toLowerCase()))
+
+//   const addNewSponsorship = (newSponsorship) => {
+//     setSponsorships([...sponsorships, newSponsorship])
+//   }
+
+//   return (
+//     <>
+//       <div className="App">
+//         {/* <div className="App-header">
+//           <Header />
+//         </div> */}
+//         <br />
+//         <SponsorshipForm addNewSponsorship={addNewSponsorship} />
+//         <br />
+//         <Search searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+//         <br />
+//         {/* <Sponsorships sponsorship={filteredSponsorships} /> */}
+//       </div>
+//     </>
+//   );
+// }
+
+// export default Home;

@@ -1,0 +1,26 @@
+
+.filter-sponsorship {
+    -webkit-appearance: none;
+    padding: 7px 30px 7px 10px;
+    width: 150px;
+    border: 1px solid #E8EAED;
+    border-radius: 5px;
+    background: white;
+    box-shadow: 0 1px 3px -2px #959dad;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 14px;
+    transition: all 150ms ease; 
+    background: white;
+    margin-right: 10px;
+   
+   }
+   
+   .filter-sponsorship:focus{
+       outline: none;
+   }
+   
+   .filter-sponsorship select option {
+       background: white;
+       font-size: 16px;
+   } 

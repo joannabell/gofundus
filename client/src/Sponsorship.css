@@ -1,0 +1,69 @@
+.sponsorship-card {
+    padding: 5px;
+    width: 170px;
+    box-shadow: 0px 1px 2px 1px rgba(48, 48, 48, 0.1);
+    margin: 10px;
+    border-radius: 5%;
+    align-items: center;
+}
+
+.sponsorship-card h3 {
+    width: 150px;
+    height: 25px;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+
+.sponsorship-card p{
+    font-size: 12px;
+    justify-content: left;
+    color: #989797;
+    font-weight: 500;
+}
+
+.sponsorship-flex {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sponsorship-card p span {
+    font-weight: 600;
+    color: black;
+}
+
+
+.button-6 {
+align-items: center;
+  background-color: #a1e8a7;
+  border: 1px solid rgba(82, 82, 82, 0.1); 
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0; 
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.85);
+  cursor: pointer;
+  font-family: system-ui,-apple-system,system-ui,"Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+  font-weight: 700; 
+  margin: 5px;
+}
+
+.button-6:hover,
+.button-6:focus {
+  border-color: rgba(82, 82, 82, 0.15);
+  box-shadow: rgba(82, 82, 82, 0.1) 0 4px 12px;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+.button-6:hover {
+  transform: translateY(-1px);
+}
+
+.button-6:active {
+  background-color: #F0F0F1;
+  border-color: rgba(0, 0, 0, 0.15);
+  box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
+  color: rgba(0, 0, 0, 0.65);
+  transform: translateY(0);
+}
