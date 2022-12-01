@@ -78,7 +78,7 @@ export default function Sponsor({ sponsors, setSponsors }) {
                             <button onClick={() => deleteSponsorships(addedSponsorships.id)} className="delete-btn">X</button>
                             <div className="sponsorship-title"><h3>{addedSponsorships.sponsorship.name}</h3></div>
                             <div className={(isAvailable.id === addedSponsorships.id) ? "thumbs-up" : ""}></div>
-                            <img src={addedSponsorships.sponsorship.image} alt="sponsors"/>
+                            <img src={addedSponsorships.sponsorship.image} alt="sponsors" />
                             <div >
                                 {addedSponsorships.availability != null ? <p>Availability:  <span>{availability}</span></p> : <p>I'm well taken care of, thank you!</p>}
                                 <button onClick={() => handleAvailability(addedSponsorships.id)} className="sponsorship-btn">Sponsor</button>

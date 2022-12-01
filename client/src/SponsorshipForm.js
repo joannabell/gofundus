@@ -1,23 +1,24 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 
-function SponsorshipForm({addNewSponsorship}) {
+function SponsorshipForm({ addNewSponsorship }) {
   const [name, setName] = useState("")
   const [description, setDescription] = useState("")
   const [image, setImage] = useState("")
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    
+
     let newSponsorship = {
       name: name,
       description: description,
-      image: image      
+      image: image
     }
     fetch("/sponsorships", {
       method: 'POST',
-      headers: {"Content-Type" : "application/json", 
-    },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(newSponsorship)
     })
       .then(resp => resp.json())

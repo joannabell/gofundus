@@ -10,7 +10,8 @@ function NavBar() {
                 <NavLink className="link" to="/sponsors">Sponsors</NavLink>
                 <NavLink className="link" to="/sponsorships">Sponsorships</NavLink>
             </div>
-           
+
         </div>
-      )}
+    )
+}
 export default NavBar
