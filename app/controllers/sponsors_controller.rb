@@ -1,11 +1,16 @@
 class SponsorsController < ApplicationController
+    before_action :authorize
+
+
     def index 
-        render json: Sponsor.all, status: :ok
+        user = User.find(session[:user_id])
+        userSponsorships = user.sponsorships 
+        render json: userSponsorships, status: :ok
     end
 
     def show 
-        sponsor = Sponsor.find(params[:id])
-        render json: sponsor, status: :ok 
+        sponsorship = Sponsorship.where(user_id: session[:user_id]).find(params[:id])
+        render json: sponsorship, status: :ok 
     end
 
     def create 
@@ -26,6 +31,9 @@ class SponsorsController < ApplicationController
     end
 
     private 
+    def authorize
+        return render json: { error: "Not authorized" }, status: :unauthorized unless session.include? :user_id
+    end
 
     def sponsor_params 
         params.permit(:name, :email)
