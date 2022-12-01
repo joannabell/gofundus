@@ -6,8 +6,10 @@ import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
 import FilterSponsorships from "./FilterSponsorships";
 
-export default function SponsorshipCard({ searchedSponsorships, sponsorships, setSponsorships, handleSearchChange, searchValue, currentShelter, handleSponsorChange, careLevel, handleCareLevel }) {
+export default function SponsorshipCard({ searchedSponsorships, sponsorships, setSponsorships, handleSearchChange, searchValue, currentShelter, handleSponsorChange, needs, handleNeeds }) {
     const [showForm, setShowForm] = useState(false)
+
+    console.log(sponsorships)
 
     return (
         <>
@@ -19,13 +21,13 @@ export default function SponsorshipCard({ searchedSponsorships, sponsorships, se
 
                     </div>
                     <div className="sponsorship-fx-right">
-                        <FilterSponsorships careLevel={careLevel} handleCareLevel={handleCareLevel} />
+                        <FilterSponsorships needs={needs} handleNeeds={handleNeeds} />
                         <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />
                     </div>
 
                 </div>
                 <div className="sponsorship-list">
-                    {searchedSponsorships.map((sponsorship) => <Sponsorship key={sponsorship.id} sponsorship={sponsorship} />)}
+                    {searchedSponsorships.map((sponsorships) => <Sponsorship key={sponsorships.id} sponsorships={sponsorships} />)}
                 </div>
 
             </div>

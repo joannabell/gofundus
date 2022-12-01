@@ -14,7 +14,7 @@ export default function NewSponsorship({ sponsorships, setSponsorships }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        fetch("http://localhost:3000/sponsorships/new", {
+        fetch("/sponsorships/new", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -38,10 +38,10 @@ export default function NewSponsorship({ sponsorships, setSponsorships }) {
                 <h2>Add Sponsorship</h2>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleFormChange} placeholder="Name..." />
                 <select name="needs" value={formData.needs} onChange={handleFormChange}>
-                    <option>Care Level</option>
-                    <option value="low">Easy</option>
+                    <option>Needs</option>
+                    <option value="low">Low</option>
                     <option value="medium">Medium</option>
-                    <option value="hard">Hard</option>
+                    <option value="high">High</option>
                 </select>
                 <select name="shelter" value={formData.shelter} onChange={handleFormChange}>
                     <option>Shelter</option>

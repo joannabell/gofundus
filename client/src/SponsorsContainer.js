@@ -10,12 +10,12 @@ export default function SponsorsContainer({ sponsors, setSponsors, addedSponsors
             <div className="new-sponsor">
                 <NewSponsor sponsors={sponsors} setSponsors={setSponsors} />
             </div>
-            <style>{'body { background-color: rgb(231, 222, 210); }'}</style>
+            <style>{'body { background-color: #5F9EA0); }'}</style>
             <div className="sponsors">
                 {sponsors.map((sponsor) => {
                     return (
                         <div className="sponsor" >
-                            <Sponsor key={sponsor.id} sponsors={sponsors} addedSponsorships={addedSponsorships} setSponsors={setSponsors} />
+                            <Sponsor key={sponsor.id} sponsor={sponsor} addedSponsorships={addedSponsorships} setSponsors={setSponsors} />
                         </div>
                     )
                 }

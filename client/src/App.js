@@ -14,17 +14,16 @@ function App() {
   const [careLevel, setCareLevel] = useState("")
   const [currentShelter, setCurrentShelter] = useState("")
 
-
   useEffect(() => {
-    fetch("http://localhost:3000/sponsors")
+    fetch("/sponsors")
       .then(data => data.json())
       .then(sponsors => { setSponsors(sponsors) })
 
-    fetch("http://localhost:3000/sponsorships")
+    fetch("/sponsorships")
       .then(data => data.json())
       .then(sponsorships => setSponsorships(sponsorships))
 
-    fetch("http://localhost:3000/signups")
+    fetch("/signups")
       .then(data => data.json())
       .then(signups => setAddedSponsorships(signups))
   }, [])

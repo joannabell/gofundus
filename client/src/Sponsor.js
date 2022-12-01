@@ -2,18 +2,31 @@ import { useEffect, useState } from "react";
 import React from 'react';
 import "./Sponsor.css";
 
-export default function Sponsor({ sponsors, setSponsors }) {
+export default function Sponsor({ sponsor, setSponsors }) {
     const [addedSponsorships, setAddedSponsorships] = useState([]);
     const [isAvailable, setIsAvailable] = useState({ id: "" });
 
     useEffect(() => {
-        fetch(`http://localhost:3000/sponsor/${sponsors.id}/signups`)
+        fetch(`/sponsors/${sponsor.id}`)
             .then((data) => data.json())
-            .then((sponsorship) => setAddedSponsorships(sponsorship));
+            .then((sponsor) => setAddedSponsorships(sponsor.sponsorships));
     }, []);
 
+    function deleteSponsors(id) {
+        fetch(`/sponsors/${id}`, {
+            method: "DELETE",
+        })
+            .then((res) => res.json())
+            .then(() => {
+                const sponsor = sponsor.filter(
+                    (deletedSponsor) => deletedSponsor.id !== id
+                );
+                setSponsors(sponsor)
+            });
+    }
+
     function handleAvailability(id) {
-        fetch(`http://localhost:3000/signups/${id}`, {
+        fetch(`/signups/${id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -38,7 +51,7 @@ export default function Sponsor({ sponsors, setSponsors }) {
     }
 
     function deleteSponsorships(id) {
-        fetch(`http://localhost:3000/sponsorships/${id}`, {
+        fetch(`/sponsorships/${id}`, {
             method: "DELETE",
         })
             .then((res) => res.json())
@@ -50,38 +63,26 @@ export default function Sponsor({ sponsors, setSponsors }) {
             });
     }
 
-    function deleteSponsors(id) {
-        fetch(`http://localhost:3000/sponsors/${id}`, {
-            method: "DELETE",
-        })
-            .then((res) => res.json())
-            .then(() => {
-                const sponsors = sponsors.filter(
-                    (deletedSponsor) => deletedSponsor.id !== id
-                );
-                setSponsors(sponsors)
-            });
-    }
-
     return (
         <div id="sponsor">
             <div className="delete-btn-div">
-                <button className="delete-sponsor-btn" onClick={() => deleteSponsors(sponsors.id)}>
+                <button className="delete-sponsor-btn" onClick={() => deleteSponsors(sponsor.id)}>
                     Delete
                 </button>
             </div>
-            <h2>{sponsors.name}</h2>
+            {/* {mapSponsorships} */}
+            <h2>{sponsor.name}</h2>
             <div className="added-sponsorships">
-                {addedSponsorships.map((addedSponsorships) => {
+                {addedSponsorships.map((addedSponsorship) => {
                     return (
-                        <div className="current-sponsorships" key={addedSponsorships.id}>
-                            <button onClick={() => deleteSponsorships(addedSponsorships.id)} className="delete-btn">X</button>
-                            <div className="sponsorship-title"><h3>{addedSponsorships.sponsorship.name}</h3></div>
-                            <div className={(isAvailable.id === addedSponsorships.id) ? "thumbs-up" : ""}></div>
-                            <img src={addedSponsorships.sponsorship.image} alt="sponsors" />
+                        <div className="current-sponsorships" key={addedSponsorship.id}>
+                            <button onClick={() => deleteSponsorships(addedSponsorship.id)} className="delete-btn">X</button>
+                            <div className="sponsorship-title"><h3>{addedSponsorship.name}</h3></div>
+                            <div className={(isAvailable.id === addedSponsorship.id) ? "thumbs-up" : ""}></div>
+                            <img src={addedSponsorship.image} alt="sponsors" />
                             <div >
-                                {addedSponsorships.availability != null ? <p>Availability:  <span>{availability}</span></p> : <p>I'm well taken care of, thank you!</p>}
-                                <button onClick={() => handleAvailability(addedSponsorships.id)} className="sponsorship-btn">Sponsor</button>
+                                {addedSponsorship.availability != null ? <p>Availability:  <span>{addedSponsorship.availability}</span></p> : <p>I'm well taken care of, thank you!</p>}
+                                <button onClick={() => handleAvailability(addedSponsorship.id)} className="sponsorship-btn">Sponsor</button>
                             </div>
                         </div>
                     )

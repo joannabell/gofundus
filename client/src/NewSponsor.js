@@ -14,7 +14,7 @@ export default function NewSponsor({ sponsors, setSponsors }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        fetch("http://localhost:9292/sponsors/new", {
+        fetch("/sponsors/new", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

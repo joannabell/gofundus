@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom"
 import "./Home.css";
 
 export default function Home() {
-    const history = useNavigate();
+    const navigate = useNavigate();
 
     const handleEnter = () => {
-        history.push("/sponsorships")
+        navigate("/sponsorships")
     }
 
 

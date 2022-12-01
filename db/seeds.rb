@@ -1,7 +1,7 @@
 puts "Seeding sponsorships..."
-sponsorship1 = Sponsorship.create(name: "Jenny B.", description: "Has a heart of gold. Has two children who live with their dad. Cleans office buildings at night and saving money for a car.")
-sponsorship2 = Sponsorship.create(name: "Karla B.", description: "Has a heart of gold. Has two children who live with their dad. Cleans office buildings at night and saving money for a car.")
-sponsorship3 = Sponsorship.create(name: "Caitlin B.", description: "Has a heart of gold. Has two children who live with their dad. Cleans office buildings at night and saving money for a car.")
+sponsorship1 = Sponsorship.create(name: "Jenny B.", image: "Has a heart of gold. Has two children who live with their dad. Cleans office buildings at night and saving money for a car.")
+sponsorship2 = Sponsorship.create(name: "Karla B.", image: "Has a heart of gold. Has two children who live with their dad. Cleans office buildings at night and saving money for a car.")
+sponsorship3 = Sponsorship.create(name: "Caitlin B.", image: "Has a heart of gold. Has two children who live with their dad. Cleans office buildings at night and saving money for a car.")
 
 puts "Seeding sponsors..."
 sponsor1 = Sponsor.create(name: "Greta Thunberg", email: "greta@gmail.com")

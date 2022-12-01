@@ -1,12 +1,12 @@
 import React from 'react';
 import "./Sponsorship.css"
 
-export default function Sponsorship({ sponsorship, currentShelter }) {
-    const { id, name, image, needs, shelter } = sponsorship
+export default function Sponsorship({ sponsorships, currentShelter }) {
+    const { id, name, image, needs, shelter } = sponsorships
     console.log(currentShelter)
 
     function handleAddSponsorship() {
-        fetch("http://localhost:3000/signups", {
+        fetch("/signups", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

@@ -6,20 +6,16 @@
     margin-right: auto;
    align-items: center;
    width: 450px;
-   /* background-color: rgb(143, 249, 249); */
    padding: 10px;
-   box-shadow: 1px 1px 4px 1px rgb(196, 196, 196);
    border-radius: 10px;
    background-color: white;
-   /* border: 1px solid rgb(88, 238, 252); */
 }
 
 .sponsorship-form {
     margin: auto;
     padding: 30px;
   
-    /* width: 400px;  */
-    /* border-radius: 10px; */
+
 }
 
 .sponsorship-form h2{
@@ -69,7 +65,7 @@
     font-size: 14px;
     cursor: pointer;
     box-shadow: 0px 0.3px 1px 0.5px rgb(184, 184, 184);
-    background-color: rgb(219, 189, 159);
+    background-color: rgb(84, 177, 214);
     text-transform: uppercase;
     font-weight: 500;
 }
