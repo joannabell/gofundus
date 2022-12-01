@@ -2,6 +2,21 @@ import { useState } from "react";
 import React from 'react';
 import "./NewSponsorship.css"
 
+function dynamicSort(property) {
+    var sortOrder = 1;
+    if(property[0] === "-") {
+        sortOrder = -1;
+        property = property.substr(1);
+    }
+    return function (a,b) {
+        /* next line works with strings and numbers, 
+         * and you may want to customize it to your needs
+         */
+        var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
+        return result * sortOrder;
+    }
+}
+
 export default function NewSponsorship({ sponsorships, setSponsorships }) {
     const [formData, setFormData] = useState({ name: "", image: "", needs: "", shelter: "" })
 
@@ -14,7 +29,7 @@ export default function NewSponsorship({ sponsorships, setSponsorships }) {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        fetch("/sponsorships/new", {
+        fetch("/sponsorships", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -23,8 +38,10 @@ export default function NewSponsorship({ sponsorships, setSponsorships }) {
         })
             .then((res) => res.json())
             .then((data) => {
+
                 const newSponsorships = [...sponsorships, data];
-                const sortedSponsorships = newSponsorships.sort((a, b) => a.name.toUpperCase().localeCompare(b.name.toUpperCase()))
+                console.log(newSponsorships)
+                const sortedSponsorships = newSponsorships.sort(dynamicSort('name'))
                 setSponsorships(sortedSponsorships);
                 setFormData({ name: "", image: "", needs: "", shelter: "" })
             });

@@ -35,6 +35,7 @@ function App() {
   }
 
   const searchedSponsorships = sponsorships.filter((sponsorship) => {
+    console.log(sponsorship)
     const sponsorshipName = sponsorship.name.toLowerCase()
     const search = searchValue.toLowerCase()
     if (careLevel === "Low") {
