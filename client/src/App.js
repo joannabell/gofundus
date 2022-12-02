@@ -5,16 +5,30 @@ import Home from './Home';
 import SponsorshipCard from './SponsorshipCard';
 import NavBar from './NavBar'
 import SponsorsContainer from './SponsorsContainer';
+import { BrowserRouter as Router } from "react-router-dom";
+import LoggedIn from "./LoggedIn";
+import LoggedOut from "./LoggedOut";
 
 function App() {
-  const [sponsors, setSponsors] = useState([])
-  const [sponsorships, setSponsorships] = useState([])
-  const [addedSponsorships, setAddedSponsorships] = useState([])
-  const [searchValue, setSearchValue] = useState("")
-  const [careLevel, setCareLevel] = useState("")
-  const [currentShelter, setCurrentShelter] = useState("")
+  const [sponsors, setSponsors] = useState([]);
+  const [sponsorships, setSponsorships] = useState([]);
+  const [addedSponsorships, setAddedSponsorships] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [careLevel, setCareLevel] = useState("");
+  const [currentShelter, setCurrentShelter] = useState("");
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
+    fetch("/me").then((res) => {
+      if (res.ok) {
+        res.json().then((user) => {
+          setCurrentUser(user);
+          setIsAuthenticated(true);
+        });
+      }
+    });
+
     fetch("/sponsors")
       .then(data => data.json())
       .then(sponsors => { setSponsors(sponsors) })
@@ -28,6 +42,9 @@ function App() {
       .then(signups => setAddedSponsorships(signups))
   }, [])
 
+  if (!isAuthenticated) {
+    return <div></div>;
+  }
 
   // search sponsorships
   function handleSearchChange(event) {
@@ -63,6 +80,7 @@ function App() {
 
   return (
     <div className="App">
+      <Router>{false ? <LoggedIn /> : <LoggedOut />}</Router>
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
