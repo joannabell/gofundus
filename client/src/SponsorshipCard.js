@@ -24,7 +24,6 @@ export default function SponsorshipCard({ searchedSponsorships, sponsorships, se
                         <FilterSponsorships needs={needs} handleNeeds={handleNeeds} />
                         <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />
                     </div>
-
                 </div>
                 <div className="sponsorship-list">
                     {searchedSponsorships.map((sponsorships) => <Sponsorship key={sponsorships.id} sponsorships={sponsorships} />)}

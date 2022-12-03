@@ -7,7 +7,8 @@ function NavBar() {
         <div className="navbar">
             <h1>GoFundUs</h1>
             <div className="nav-links">
-                <NavLink className="link" to="/sponsors">Sponsors</NavLink>
+                <NavLink className="link" to="/register">Register</NavLink>
+                <NavLink className="link" to="/login">Login</NavLink>
                 <NavLink className="link" to="/sponsorships">Sponsorships</NavLink>
             </div>
 
