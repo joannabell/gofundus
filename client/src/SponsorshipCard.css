@@ -3,17 +3,17 @@
     margin-top: 30px
 }
 
+.sponsorship-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+}
+
 .sponsorship-list img{
     width: 120px;
     height: 150px;
     padding: -10px;
     margin: -10px;
-}
-
-.sponsorship-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
 }
 
 .sponsorship-fx {
