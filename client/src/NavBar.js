@@ -5,7 +5,7 @@ import "./NavBar.css"
 function NavBar() {
     return (
         <div className="navbar">
-            <h1>GoFundUs</h1>
+            <h1><a href="http://localhost:4000/"></a>GoFundUs</h1>
             <div className="nav-links">
                 <NavLink className="link" to="/register">Register</NavLink>
                 <NavLink className="link" to="/login">Login</NavLink>
