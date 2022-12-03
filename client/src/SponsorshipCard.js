@@ -4,9 +4,9 @@ import "./SponsorshipCard.css";
 import Sponsorship from "./Sponsorship";
 import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
-import FilterSponsorships from "./FilterSponsorships";
+// import FilterSponsorships from "./FilterSponsorships";
 
-export default function SponsorshipCard({ searchedSponsorships, sponsorships, setSponsorships, handleSearchChange, searchValue, currentShelter, handleSponsorChange, needs, handleNeeds }) {
+export default function SponsorshipCard({ sponsorships, setSponsorships, handleSearchChange, searchValue, currentShelter, handleSponsorChange }) {
     const [showForm, setShowForm] = useState(false)
 
     console.log(sponsorships)
@@ -21,10 +21,11 @@ export default function SponsorshipCard({ searchedSponsorships, sponsorships, se
 
                     </div>
                     <div className="sponsorship-fx-right">
-                        <FilterSponsorships needs={needs} handleNeeds={handleNeeds} />
+                        {/* <FilterSponsorships needs={needs} handleNeeds={handleNeeds} /> */}
                         <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />
                     </div>
                 </div>
+                
 
             </div>
 
