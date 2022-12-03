@@ -35,7 +35,7 @@ export default function SponsorshipCard({ sponsorships, setSponsorships, handleS
                 </div>
                 :
                 <div className="show-form-div">
-                    <button className="add-sponsorship-btn" onClick={() => setShowForm(true)}>Add Someone to Sponsor</button>
+                    <button className="add-sponsorship-btn" onClick={() => setShowForm(true)}>Add a Sponsorship</button>
                 </div>
             }
 
