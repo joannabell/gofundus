@@ -6,6 +6,11 @@ import SponsorshipCard from './SponsorshipCard';
 import NavBar from './NavBar'
 import SponsorsContainer from './SponsorsContainer';
 import { BrowserRouter as Router } from "react-router-dom";
+import LoginForm from './LoginForm'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import AuthenticationContext from './AuthenticationContext';
+
+
 
 function App() {
   const [sponsors, setSponsors] = useState([]);
@@ -17,14 +22,6 @@ function App() {
   const [currentUser, setCurrentUser] = useState(null);
 
   useEffect(() => {
-    fetch("/me").then((res) => {
-      if (res.ok) {
-        res.json().then((user) => {
-          setCurrentUser(user);
-          setIsAuthenticated(true);
-        });
-      }
-    });
 
     fetch("/sponsors")
       .then(data => data.json())
@@ -39,39 +36,28 @@ function App() {
       .then(signups => setAddedSponsorships(signups))
   }, [])
 
-  // choose needs level dropdown
-  function handleNeeds(event) {
-    setNeeds(event.target.value)
+  const handleLogin = (user) => {
+    setCurrentUser(user)
+    setIsAuthenticated(true)
   }
 
-  // choose city dropdown
-  function handleShelterChange(event) {
-    setCurrentShelter(event.target.value)
-  }
 
   return (
-    <Router>
-      <div className="App">
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/sponsors" element={<SponsorsContainer sponsors={sponsors} setSponsors={setSponsors} addedSponsorships={addedSponsorships} />} />
-          <Route path="/sponsorships" element={<SponsorshipCard
-            sponsorships={sponsorships}
-            setSponsorships={setSponsorships}
-            sponsors={sponsors}
-            setSponsors
-            needs={needs}
-            handleNeeds={handleNeeds}
-            currentShelter={currentShelter}
-            handleShelterChange={handleShelterChange}
-          />} />
-        </Routes>
-      </div>
-    </Router>
+    <AuthenticationContext.Provider value={ { currentUser, isAuthenticated } }>
+      <Router>
+        <div className="App">
+          <NavBar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/sponsors" element={<SponsorsContainer sponsors={sponsors} setSponsors={setSponsors} addedSponsorships={addedSponsorships} />} />
+            <Route path="/sponsorships" element={<SponsorshipCard />} />
+            <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
+          </Routes>
+        </div>
+      </Router>
+    </AuthenticationContext.Provider>
   );
 }
 
 export default App;
-
 

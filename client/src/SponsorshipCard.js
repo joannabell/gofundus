@@ -1,28 +1,37 @@
 import React from 'react';
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import "./SponsorshipCard.css";
 import Sponsorship from "./Sponsorship";
 import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
 // import FilterSponsorships from "./FilterSponsorships";
 
-export default function SponsorshipCard({ sponsorships, setSponsorships, handleSearchChange, searchValue, currentShelter, handleSponsorChange }) {
+export default function SponsorshipCard() {
     const [showForm, setShowForm] = useState(false)
+    const [sponsorships, setSponsorships] = useState([])
+    const [searchValue, setSearchValue] = useState("")
 
+    useEffect(() => {
+        fetch("/sponsorships")
+            .then(data => data.json())
+            .then(sponsorships => setSponsorships(sponsorships))
+    }, [])
+    
     console.log(sponsorships)
 
     return (
         <>
             <div className="sponsorship-page">
-
                 <div className="sponsorship-fx">
                     <div className="sponsorship-fx-left">
-                        <Search handleSearchChange={handleSearchChange} searchValue={searchValue} />
-
+                        <Search handleSearchChange={setSearchValue} searchValue={searchValue} />
                     </div>
                     <div className="sponsorship-fx-right">
-                        {/* <FilterSponsorships needs={needs} handleNeeds={handleNeeds} /> */}
-                        <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />
+                        {sponsorships.filter(s => {
+                            return s.name.toLowerCase().includes(searchValue.toLowerCase());
+                        }).map(s => <Sponsorship sponsorship={s} key={s.id}></Sponsorship>)}
+
+                        {/* <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />*/}
                     </div>
                 </div>
                 

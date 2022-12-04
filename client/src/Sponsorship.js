@@ -1,8 +1,9 @@
 import React from 'react';
 import "./Sponsorship.css"
 
-export default function Sponsorship({ sponsorships, currentShelter }) {
-    const { id, name, image, needs, shelter } = sponsorships
+export default function Sponsorship({ sponsorship, currentShelter }) {
+    const { id, name, image, needs, shelter } = sponsorship
+    
     console.log(currentShelter)
 
     function handleAddSponsorship() {

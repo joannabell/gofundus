@@ -1,13 +1,23 @@
 import React, { useState } from "react";
-
-import React, { useState } from "react";
-import { Button, Error, Input, FormField, Label } from "../styles";
+import { useNavigate } from "react-router-dom";
+import { Button, Input, Form, Label } from "react-bootstrap";
 
 function LoginForm({ onLogin }) {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const navigate = useNavigate();
+
+  const handleEmailChange = (e) => {
+    e.preventDefault();
+    setEmail(e.target.value);
+  }
+  const handlePasswordChange = (e) => {
+    e.preventDefault();
+    setPassword(e.target.value);
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -17,50 +27,72 @@ function LoginForm({ onLogin }) {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ username, password }),
+      body: JSON.stringify({ email , password }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
+        navigate("/me")
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((err) => setErrors([err.error]));
       }
     });
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <FormField>
-        <Label htmlFor="username">Username</Label>
-        <Input
-          type="text"
-          id="username"
-          autoComplete="off"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Label htmlFor="password">Password</Label>
-        <Input
-          type="password"
-          id="password"
-          autoComplete="current-password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-      </FormField>
-      <FormField>
-        <Button variant="fill" color="primary" type="submit">
-          {isLoading ? "Loading..." : "Login"}
-        </Button>
-      </FormField>
-      <FormField>
-        {errors.map((err) => (
-          <Error key={err}>{err}</Error>
-        ))}
-      </FormField>
-    </form>
+    // <form onSubmit={handleSubmit}>
+    //   <Form>
+    //     <Label htmlFor="username">Username</Label>
+    //     <Input
+    //       type="text"
+    //       id="username"
+    //       autoComplete="off"
+    //       value={username}
+    //       onChange={(e) => setUsername(e.target.value)}
+    //     />
+    //   </Form>
+    //   <Form>
+    //     <Label htmlFor="password">Password</Label>
+    //     <Input
+    //       type="password"
+    //       id="password"
+    //       autoComplete="current-password"
+    //       value={password}
+    //       onChange={(e) => setPassword(e.target.value)}
+    //     />
+    //   </Form>
+    //   <Form>
+    //     <Button variant="fill" color="primary" type="submit">
+    //       {isLoading ? "Loading..." : "Login"}
+    //     </Button>
+    //   </Form>
+    // </forimport Button from 'react-bootstrap/Button';
+
+    <Form>
+      <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Label>Email address</Form.Label>
+        <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
+        <Form.Text className="text-muted">
+          We'll never share your email with anyone else.
+        </Form.Text>
+      </Form.Group>
+
+      <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
+        {errors.length > 0 ?
+          <Form.Text className="text-muted">
+            {errors.join("\n")}
+          </Form.Text> : null
+        } 
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+        <Form.Check type="checkbox" label="Check me out" />
+      </Form.Group>
+      <Button variant="primary" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
+    </Form>
   );
 }
 

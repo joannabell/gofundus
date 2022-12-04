@@ -1,17 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Search.css"
 
-function Search({ handleSearchChange, searchValue }) {
-
-
+function Search({ handleSearchChange }) {
+    const [searchValue, setSearchValue] = useState("")
+    const handleSearchValueChange = (e) => {
+        setSearchValue(e.target.value)
+        handleSearchChange(e.target.value)
+    }
+    
     return (
         <div className="search">
             <form className="search-bar">
-                <input type="text" placeholder="Search sponsorship opportunities..." value={searchValue} onChange={handleSearchChange} />
+                <input type="text" placeholder="Search sponsorship opportunities..." value={searchValue} onChange={handleSearchValueChange} />
             </form>
         </div>
     )
-
 }
 
 export default Search
