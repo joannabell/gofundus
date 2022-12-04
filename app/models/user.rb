@@ -1,7 +1,9 @@
 class User < ApplicationRecord
-        has_secure_password
-    
-        validates :email, presence: true, uniqueness: true
-    
-        has_many :sponsorships
+  has_secure_password
+
+  validates :email, presence: true, uniqueness: true
+
+  has_many :signups
+  has_many :sponsorships, through: :signups, dependent: :destroy
+
 end

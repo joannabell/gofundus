@@ -10,17 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_02_185648) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_03_234535) do
   create_table "signups", force: :cascade do |t|
-    t.string "sponsor_id"
+    t.string "user_id"
     t.string "sponsorship_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "sponsors", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -39,6 +32,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_02_185648) do
     t.datetime "updated_at", null: false
     t.string "password_digest"
     t.string "email"
+    t.boolean "is_sponsor", default: true
   end
 
 end
