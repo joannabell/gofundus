@@ -1,26 +1,19 @@
 .sponsorship-page {
-    margin: 20px;
-    margin-top: 30px
+    /* margin: 20px;
+    margin-top: 30px */
 }
 
 .sponsorship-list {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
+    margin-top: 30px; */
 }
 
 .sponsorship-list img{
-    width: 120px;
+    /* width: 120px;
     height: 150px;
     padding: -10px;
-    margin: -10px;
-}
-
-.sponsorship-fx {
-    display: flex;
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
+    margin: -10px; */
 }
 
 .sponsorship-fx-right {

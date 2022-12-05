@@ -11,7 +11,7 @@ function Search({ handleSearchChange }) {
     return (
         <div className="search">
             <form className="search-bar">
-                <input type="text" placeholder="Search sponsorship opportunities..." value={searchValue} onChange={handleSearchValueChange} />
+                <input type="text" placeholder="search" value={searchValue} onChange={handleSearchValueChange} />
             </form>
         </div>
     )
