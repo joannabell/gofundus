@@ -4,8 +4,12 @@
     justify-content: space-between;
     padding-left: 20px;
     padding-right: 20px;
-    background-color: rgb(84, 177, 214);
-    height: 100px
+    height: 100px;
+    border-radius: 30px;
+}
+
+.home-button {
+    
 }
 
 .navbar h1 {
@@ -17,7 +21,8 @@
 .nav-links a{
     color:rgb(3, 3, 3);
     text-decoration: none;
-    padding: 10px;
+    padding: 15px;
     font-weight: 600;
     font-size: 17px;
+    letter-spacing: 1px;
 }
