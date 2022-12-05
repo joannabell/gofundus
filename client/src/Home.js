@@ -15,11 +15,13 @@ export default function Home() {
 
 
     return (
-        <div id="home-page-container">
-            <h1>GoFundUs</h1>
-            <img src="https://www.shutterstock.com/image-photo/donation-jar-copy-space-fundraiser-260nw-656980429.jpg" alt="A New Way To Donate" />
-            <p onClick={handleEnter} id="enter-btn">Enter</p>
-            <p onClick={handleLogin} id="enter-btn">Login</p>
+        <div id="body">
+            <div id="home-page-container">
+                <h1>GoFundUs</h1>
+                <img src="" />
+                <p onClick={handleEnter} id="enter-btn">enter</p>
+                <p onClick={handleLogin} id="enter-btn">login</p>
+            </div>
         </div>
     )
 }

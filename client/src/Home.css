@@ -1,72 +1,44 @@
-#home-page-container body {
-    /* position: absolute;
-    /* width: 450px;
-    height: 500px;  */
-    /*top: 25%;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto; */
-background-color: #FFFFFF;
-   
+#body {
+  background-color: black;
+  height: 100%;
+  margin: 0;
 }
 
 #home-page-container h1 {
-    padding-top: 160px;
-    padding-bottom: 20px;
-    font-size: 85px;
-    left: 40%;
-    margin: auto;
-    font-family: 'Arial', sans-serif;
+  height: 100%;
+  color: white;
+  padding-top: 260px;
+  font-size: 120px;
+  /* margin: auto; */
+  font-family: Raleway, "Open Sans", sans-serif;
+  font-weight: 700;
 }
 
 #enter-btn {
   align-items: center;
+  display: inline-block;
   position: relative;
-  margin-top: 400px;
-  margin: 0 auto;
-
-}
-
-
-/* CSS */
-#enter-btn {
-  appearance: none;
+  margin-top: -5px;
+  margin: 50px 20px;
   background-color: #fff;
-  border: 1px solid #dbdbdb;
-  border-radius: .375em;
-  box-shadow: none;
-  box-sizing: border-box;
-  color: #363636;
   cursor: pointer;
-  font-family: 'Arial', sans-serif;
-  font-size: 1rem;
-  height: 2.5em;
-  line-height: 1.5;
-  padding: calc(.5em - 1px) 1em;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  vertical-align: top;
-  white-space: nowrap;
-  width: 200px;
-  margin-top: 20px;
-}
+  border-radius: 12px;
+  color: black;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 6px 20px;
+  touch-action: inherit;
 
-.button-60:active {
-  border-color: #4a4a4a;
-  outline: 0;
-}
-
-.button-60:focus {
-  border-color: #000107;
-  outline: 0;
-}
-
-.button-60:hover {
-  border-color: #b5b5b5;
-}
-
-.button-60:focus:not(:active) {
-  box-shadow: rgba(72, 95, 199, .25) 0 0 0 .125em;
+  /* user-select: none; */
+  /* -webkit-user-select: none; */
+  /* vertical-align: top; */
+  /* white-space: nowrap; */
+  /* width: 150px; */
+  /* box-shadow: none;
+  box-sizing: border-box; */
+  /* appearance: none; */
+  /* height: 2.5em; */
+  /* line-height: 1.5; */
 }
