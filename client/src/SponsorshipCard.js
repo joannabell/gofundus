@@ -4,6 +4,7 @@ import "./SponsorshipCard.css";
 import Sponsorship from "./Sponsorship";
 import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
+import NavBar from "./NavBar"
 // import FilterSponsorships from "./FilterSponsorships";
 
 export default function SponsorshipCard() {
@@ -16,12 +17,14 @@ export default function SponsorshipCard() {
             .then(data => data.json())
             .then(sponsorships => setSponsorships(sponsorships))
     }, [])
-    
+
     console.log(sponsorships)
 
     return (
         <>
             <div className="sponsorship-page">
+                <NavBar />
+
                 <div className="sponsorship-fx">
                     <div className="sponsorship-fx-left">
                         <Search handleSearchChange={setSearchValue} searchValue={searchValue} />
@@ -34,7 +37,7 @@ export default function SponsorshipCard() {
                         {/* <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />*/}
                     </div>
                 </div>
-                
+
 
             </div>
 

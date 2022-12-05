@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Input, Form, Label } from "react-bootstrap";
+import NavBar from "./NavBar";
 
 function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -22,17 +23,17 @@ function LoginForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("/login", {
+    fetch("http://localhost:4000/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email , password }),
+      body: JSON.stringify({ email, password }),
     }).then((r) => {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        navigate("/me")
+        navigate("http://localhost:4000/me")
       } else {
         r.json().then((err) => setErrors([err.error]));
       }
@@ -40,35 +41,9 @@ function LoginForm({ onLogin }) {
   }
 
   return (
-    // <form onSubmit={handleSubmit}>
-    //   <Form>
-    //     <Label htmlFor="username">Username</Label>
-    //     <Input
-    //       type="text"
-    //       id="username"
-    //       autoComplete="off"
-    //       value={username}
-    //       onChange={(e) => setUsername(e.target.value)}
-    //     />
-    //   </Form>
-    //   <Form>
-    //     <Label htmlFor="password">Password</Label>
-    //     <Input
-    //       type="password"
-    //       id="password"
-    //       autoComplete="current-password"
-    //       value={password}
-    //       onChange={(e) => setPassword(e.target.value)}
-    //     />
-    //   </Form>
-    //   <Form>
-    //     <Button variant="fill" color="primary" type="submit">
-    //       {isLoading ? "Loading..." : "Login"}
-    //     </Button>
-    //   </Form>
-    // </forimport Button from 'react-bootstrap/Button';
-
     <Form>
+      <NavBar />
+
       <Form.Group className="mb-3" controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
@@ -79,12 +54,12 @@ function LoginForm({ onLogin }) {
 
       <Form.Group className="mb-3" controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange}/>
+        <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
         {errors.length > 0 ?
           <Form.Text className="text-muted">
             {errors.join("\n")}
           </Form.Text> : null
-        } 
+        }
       </Form.Group>
       <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Check me out" />

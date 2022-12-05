@@ -3,14 +3,13 @@ import { Route, Routes } from 'react-router-dom';
 import React, { useState, useEffect } from "react";
 import Home from './Home';
 import SponsorshipCard from './SponsorshipCard';
-import NavBar from './NavBar'
+// import NavBar from './NavBar'
 import SponsorsContainer from './SponsorsContainer';
 import { BrowserRouter as Router } from "react-router-dom";
 import LoginForm from './LoginForm'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthenticationContext from './AuthenticationContext';
-
-
+import Profile from './Profile'
 
 function App() {
   const [sponsors, setSponsors] = useState([]);
@@ -46,12 +45,13 @@ function App() {
     <AuthenticationContext.Provider value={ { currentUser, isAuthenticated } }>
       <Router>
         <div className="App">
-          <NavBar />
+          {/* <NavBar /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sponsors" element={<SponsorsContainer sponsors={sponsors} setSponsors={setSponsors} addedSponsorships={addedSponsorships} />} />
             <Route path="/sponsorships" element={<SponsorshipCard />} />
             <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
+            <Route path="/me" element={<Profile  />} />
           </Routes>
         </div>
       </Router>
