@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import NavBar from "./NavBar";
+import "./LoginForm.css"
 
 function LoginForm({ onLogin }) {
   const [email, setEmail] = useState("");
@@ -43,31 +44,33 @@ function LoginForm({ onLogin }) {
   return (
     <Form>
       <NavBar />
-
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
-        <Form.Text className="text-muted">
-          We'll never share your email with anyone else.
-        </Form.Text>
-      </Form.Group>
-
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
-        {errors.length > 0 ?
+      <div className="login-form">
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>Email address</Form.Label>
+          <Form.Control type="email" placeholder="Enter email" value={email} onChange={handleEmailChange} />
           <Form.Text className="text-muted">
-            {errors.join("\n")}
-          </Form.Text> : null
-        }
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
-        {/* <Form.Check type="checkbox" label="Check me out" /> */}
-      </Form.Group>
-      <Button variant="primary" type="submit" onClick={handleSubmit}>
-        Submit
-      </Button>
+            We'll never share your email with anyone else.
+          </Form.Text>
+        </Form.Group>
+
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" value={password} onChange={handlePasswordChange} />
+          {errors.length > 0 ?
+            <Form.Text className="text-muted">
+              {errors.join("\n")}
+            </Form.Text> : null
+          }
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+          {/* <Form.Check type="checkbox" label="Check me out" /> */}
+        </Form.Group>
+        <button variant="primary" type="submit" onClick={handleSubmit}>
+          Submit
+        </button>
+      </div>
     </Form>
+
   );
 }
 

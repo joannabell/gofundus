@@ -49,7 +49,7 @@ export default function NewSponsorship({ sponsorships, setSponsorships }) {
     return (
         <div className="form-container" >
             <form className="sponsorship-form" onSubmit={handleSubmit} >
-                <h2>Add Sponsorship</h2>
+                <h2>Who would you like to sponsor?</h2>
                 <input type="text" name="name" id="name" value={formData.name} onChange={handleFormChange} placeholder="Name..." />
                 <select name="needs" value={formData.needs} onChange={handleFormChange}>
                     <option>Needs</option>
