@@ -21,7 +21,9 @@ export default function SponsorshipCard() {
         <>
             <div className="sponsorship-page">
                 <NavBar />
+                <div className="">
 
+                </div>
                 <div className="sponsorship-fx">
                     <div className="sponsorship-fx-left">
                         <Search handleSearchChange={setSearchValue} searchValue={searchValue} />
@@ -42,7 +44,7 @@ export default function SponsorshipCard() {
                 </div>
                 :
                 <div className="show-form-div">
-                    <button className="add-sponsorship-btn" onClick={() => setShowForm(!showForm)}> Add </button>
+                    <button className="add-sponsorship-btn" onClick={() => setShowForm(!showForm)}> add someone to sponsor </button>
                 </div>
             }
 

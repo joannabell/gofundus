@@ -1,9 +1,9 @@
 .search-bar input {
-    border-radius: 12px;
+    border-radius: 30px;
     border-style: solid;
     border-width: 1px;
-    border-color: black;
-    color: black;
+    border-color: #02a95c;
+    color: #02a95c;
     padding: 2px 20px;
     margin: 50px 20px;
     align-items: center;
@@ -17,8 +17,13 @@
     letter-spacing: 1px;
 }
 
-.search-bar input:focus {
-    outline: none;
+.search-bar ::placeholder {
+    color: #02a95c;
+    align-items: center;
+    text-align: center;
+}
 
-    
+.search-bar input:focus {
+    border-color:#02a95c;
+    outline: none !important;
 }

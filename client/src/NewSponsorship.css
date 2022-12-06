@@ -2,36 +2,35 @@
     margin-top: 40px;
     margin-bottom: 50px;
     display: flex;
-    margin-left: auto; 
+    margin-left: auto;
     margin-right: auto;
-   align-items: center;
-   width: 450px;
-   padding: 10px;
-   border-radius: 10px;
-   background-color: white;
+    align-items: center;
+    width: 450px;
+    padding: 10px;
+    border-radius: 10px;
+    background-color: white;
 }
 
 .sponsorship-form {
     margin: auto;
     padding: 30px;
-  
+
 
 }
 
-.sponsorship-form h2{
+.sponsorship-form h2 {
     margin: 0;
     padding-bottom: 30px;
     font-size: 24px;
     font-family: Raleway, "Open Sans", sans-serif;
-    text-transform: uppercase; 
+    text-transform: uppercase;
     font-weight: 200;
     color: rgb(65, 65, 65);
-
 }
 
 .sponsorship-form input {
     padding: 8px;
-    margin-right: 10px; 
+    width: 100%;
     margin-bottom: 20px;
     border-radius: 20px;
     border: 1px solid black;
@@ -42,10 +41,12 @@
 }
 
 .sponsorship-form select {
-    margin-right: 10px;
+    margin-bottom: 20px;
+    width: 100%;
     padding: 8px;
     border-radius: 20px;
     border: 1px solid black;
+    text-align: center;
 }
 
 .sponsorship-form select:focus {
@@ -53,19 +54,26 @@
 }
 
 .sponsorship-form #image {
-    width: 350px;
+    
 }
 
 .sponsorship-form #create {
     margin-top: 10px;
     width: 360px;
     padding: 10px;
-     border-radius: 20px; 
-    border: none;
+    border-radius: 20px;
+    border: 2px solid;
     font-size: 14px;
     cursor: pointer;
     box-shadow: 0px 0.3px 1px 0.5px rgb(184, 184, 184);
-    background-color: rgb(84, 177, 214);
+    background-color: transparent;
     text-transform: uppercase;
-    font-weight: 500;
+    font-weight: bold;
+    color: #02a95c;
+}
+
+.sponsorship-form ::placeholder {
+    color: black;
+    align-items: center;
+    text-align: center;
 }

@@ -18,7 +18,7 @@ export default function Home() {
         <div id="body">
             <div id="home-page-container">
                 <h1>GoFundUs</h1>
-                <p onClick={handleEnter} id="enter-btn">enter</p>
+                <p onClick={handleEnter} id="enter-btn">register</p>
                 <p onClick={handleLogin} id="enter-btn">login</p>
             </div>
         </div>

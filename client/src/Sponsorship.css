@@ -1,17 +1,20 @@
 .sponsorship-card {
     padding: 5px;
-    width: 170px;
+    width: 33%;
     box-shadow: 0px 1px 2px 1px rgba(48, 48, 48, 0.1);
     margin: 10px;
-    border-radius: 5%;
+    border-radius: 20px;
     align-items: center;
+    border-color: #989797;
+    border-width: 2px;
+    border-style: solid;
 }
 
 .sponsorship-card h3 {
-    width: 150px;
     height: 25px;
     font-size: 16px;
     text-transform: uppercase;
+    text-align: center;
 }
 
 .sponsorship-card p{
@@ -36,7 +39,7 @@
 
 .button-6 {
 align-items: center;
-  background-color: #a1e8a7;
+  background-color: #02a95c;
   border: 1px solid rgba(82, 82, 82, 0.1); 
   border-radius: .25rem;
   box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0; 

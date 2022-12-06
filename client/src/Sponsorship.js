@@ -32,7 +32,7 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
             {({ isAuthenticated }) => (
                 <div className="sponsorship-card">
                     <h3>{name}</h3>
-                    <img src={image} alt="Sponsorship Card" />
+                    {/* <img src={image} alt="Sponsorship Card" /> */}
 
                     <div className="sponsorship-flex">
                         <p>Shelter: <span>{shelter}</span></p>
@@ -46,8 +46,7 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
                                 </Tooltip>
                             )}
                         </Overlay>
-                        : null } 
-                        }
+                        : null }
                     </div>
                 </div>
         )}
