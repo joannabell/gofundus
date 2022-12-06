@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Input, Form, Label } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import NavBar from "./NavBar";
 
 function LoginForm({ onLogin }) {
@@ -23,7 +23,7 @@ function LoginForm({ onLogin }) {
   function handleSubmit(e) {
     e.preventDefault();
     setIsLoading(true);
-    fetch("http://localhost:4000/login", {
+    fetch("/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -33,7 +33,7 @@ function LoginForm({ onLogin }) {
       setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => onLogin(user));
-        navigate("http://localhost:4000/me")
+        navigate("/me")
       } else {
         r.json().then((err) => setErrors([err.error]));
       }

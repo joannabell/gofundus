@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import React from 'react';
 import "./Sponsor.css";
+import AuthenticationContext from './AuthenticationContext';
 
 export default function Sponsor({ sponsor, setSponsors }) {
     const [addedSponsorships, setAddedSponsorships] = useState([]);
@@ -12,18 +13,18 @@ export default function Sponsor({ sponsor, setSponsors }) {
             .then((sponsor) => setAddedSponsorships(sponsor.sponsorships));
     }, []);
 
-    function deleteSponsors(id) {
-        fetch(`/sponsors/${id}`, {
-            method: "DELETE",
-        })
-            .then((res) => res.json())
-            .then(() => {
-                const sponsor = sponsor.filter(
-                    (deletedSponsor) => deletedSponsor.id !== id
-                );
-                setSponsors(sponsor)
-            });
-    }
+    // function deleteSponsors(id) {
+    //     fetch(`/sponsors/${id}`, {
+    //         method: "DELETE",
+    //     })
+    //         .then((res) => res.json())
+    //         .then(() => {
+    //             const sponsor = sponsor.filter(
+    //                 (deletedSponsor) => deletedSponsor.id !== id
+    //             );
+    //             setSponsors(sponsor)
+    //         });
+    // }
 
     function handleAvailability(id) {
         fetch(`/signups/${id}`, {
@@ -65,11 +66,11 @@ export default function Sponsor({ sponsor, setSponsors }) {
 
     return (
         <div id="sponsor">
-            <div className="delete-btn-div">
+            {/* <div className="delete-btn-div">
                 <button className="delete-sponsor-btn" onClick={() => deleteSponsors(sponsor.id)}>
                     Delete
                 </button>
-            </div>
+            </div> */}
             {/* {mapSponsorships} */}
             <h2>{sponsor.name}</h2>
             <div className="added-sponsorships">

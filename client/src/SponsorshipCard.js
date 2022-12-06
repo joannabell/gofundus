@@ -5,7 +5,6 @@ import Sponsorship from "./Sponsorship";
 import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
 import NavBar from "./NavBar"
-// import FilterSponsorships from "./FilterSponsorships";
 
 export default function SponsorshipCard() {
     const [showForm, setShowForm] = useState(false)
@@ -17,8 +16,6 @@ export default function SponsorshipCard() {
             .then(data => data.json())
             .then(sponsorships => setSponsorships(sponsorships))
     }, [])
-
-    console.log(sponsorships)
 
     return (
         <>
@@ -33,8 +30,6 @@ export default function SponsorshipCard() {
                         {sponsorships.filter(s => {
                             return s.name.toLowerCase().includes(searchValue.toLowerCase());
                         }).map(s => <Sponsorship sponsorship={s} key={s.id}></Sponsorship>)}
-
-                        {/* <Sponsorship sponsorships={sponsorships} currentShelter={currentShelter} handleSponsorChange={handleSponsorChange} />*/}
                     </div>
                 </div>
 
@@ -47,7 +42,7 @@ export default function SponsorshipCard() {
                 </div>
                 :
                 <div className="show-form-div">
-                    <button className="add-sponsorship-btn" onClick={() => setShowForm(true)}> Add </button>
+                    <button className="add-sponsorship-btn" onClick={() => setShowForm(!showForm)}> Add </button>
                 </div>
             }
 

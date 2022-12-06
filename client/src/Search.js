@@ -13,7 +13,7 @@ function Search({ handleSearchChange }) {
             <form className="search-bar">
                 <input type="text" placeholder="search" value={searchValue} onChange={handleSearchValueChange} />
             </form>
-        </div>
+        </div>        
     )
 }
 

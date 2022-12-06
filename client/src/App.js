@@ -13,27 +13,21 @@ import Profile from './Profile'
 
 function App() {
   const [sponsors, setSponsors] = useState([]);
-  const [sponsorships, setSponsorships] = useState([]);
+  // const [sponsorships, setSponsorships] = useState([]);
   const [addedSponsorships, setAddedSponsorships] = useState([]);
-  const [needs, setNeeds] = useState("");
-  const [currentShelter, setCurrentShelter] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  useEffect(() => {
+  // useEffect(() => {
 
-    fetch("/sponsors")
-      .then(data => data.json())
-      .then(sponsors => { setSponsors(sponsors) })
+  //   fetch("/sponsorships")
+  //     .then(data => data.json())
+  //     .then(sponsorships => setSponsorships(sponsorships))
 
-    fetch("/sponsorships")
-      .then(data => data.json())
-      .then(sponsorships => setSponsorships(sponsorships))
-
-    fetch("/signups")
-      .then(data => data.json())
-      .then(signups => setAddedSponsorships(signups))
-  }, [])
+  //   fetch("/signups")
+  //     .then(data => data.json())
+  //     .then(signups => setAddedSponsorships(signups))
+  // }, [])
 
   const handleLogin = (user) => {
     setCurrentUser(user)

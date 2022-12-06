@@ -9,11 +9,12 @@ function NavBar() {
         <AuthenticationContext.Consumer>
             {({ currentUser, isAuthenticated }) => (
                 <div className="navbar">
-                    <button>
-                    <img className="img-responsive" src={logo} alt="logo"/>
+                    <NavLink to="/">
+                        <button>
+                            <img className="img-responsive" src={logo} alt="logo" />
                         </button>
+                    </NavLink>
                     <div className="nav-links">
-
                         {!isAuthenticated ?
                             <>
                                 <NavLink className="link" to="/register">Register</NavLink>
@@ -21,7 +22,6 @@ function NavBar() {
                             </>
                             : null
                         }
-
                         <NavLink className="link" to="/sponsorships">Sponsorships</NavLink>
                     </div>
                 </div>

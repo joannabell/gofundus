@@ -9,25 +9,39 @@ class SignupsController < ApplicationController
     end
 
     def create
-        signup = Signup.create!(signup_params)
-        render json: signup, status: :created
+        assure_current_user(params[:user_id])
+        signup = Signup.new(signup_params)
+        if signup.create                       
+            render json: signup, status: :created
+        else
+            render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 
+        end
     end
 
     def update
-        signup = Signup.find(params[:id])
-        signup.update(signup_params)
-        render json: signup, status: :accepted
+        assure_current_user(params[:user_id])
+        signup = Signup.find(params[:signup_id])
+        if signup&.update(signup_params)                       
+            render json: signup, status: :success
+        else
+            render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 
+        end
     end
 
     def destroy
-        signup = Signup.find(params[:id])
-        signup.destroy 
-        render json: {}, status: :ok
+        assure_current_user(params[:user_id])
+        signup = Signup.find(params[:signup_id])
+        if signup&.destroy
+            render json: signup, status: :ok
+        else
+            render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 
+        end
     end
 
     private 
     
     def signup_params
-        params.permit(:sponsor_id, :sponsorship_id)
+        # TODO: figure out #permit args
+        params.require([:user_id, :sponsorship_id])
     end
 end
