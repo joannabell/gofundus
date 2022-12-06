@@ -12,7 +12,7 @@ puts "Seeding signups..."
 30.times do
     Signup.create(
       sponsorship_id: rand(0..7),
-      sponsor_id: rand(0..7)
+      user_id: rand(0..7)
     )
 end
 
