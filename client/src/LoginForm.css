@@ -1,0 +1,10 @@
+.login-form {
+    display: flexbox;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.login-element {
+    padding: 20%;
+    background-color: black;
+}
