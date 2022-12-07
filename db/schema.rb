@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_05_195316) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_06_220132) do
   create_table "signups", force: :cascade do |t|
     t.string "user_id"
     t.string "sponsorship_id"
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_05_195316) do
     t.string "email"
     t.boolean "is_sponsor", default: true
     t.string "name"
-    t.string "remember_token"
+    t.string "session_token"
   end
 
 end

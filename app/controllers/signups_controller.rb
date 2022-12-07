@@ -9,9 +9,8 @@ class SignupsController < ApplicationController
     end
 
     def create
-        assure_current_user(params[:user_id])
         signup = Signup.new(signup_params)
-        if signup.create                       
+        if (signup.user == current_user) && signup.create                       
             render json: signup, status: :created
         else
             render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 
@@ -19,9 +18,8 @@ class SignupsController < ApplicationController
     end
 
     def update
-        assure_current_user(params[:user_id])
         signup = Signup.find(params[:signup_id])
-        if signup&.update(signup_params)                       
+        if (signup.user == current_user) && signup&.update(signup_params)                       
             render json: signup, status: :success
         else
             render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 
@@ -29,9 +27,8 @@ class SignupsController < ApplicationController
     end
 
     def destroy
-        assure_current_user(params[:user_id])
         signup = Signup.find(params[:signup_id])
-        if signup&.destroy
+        if (signup.user == current_user) && signup&.destroy
             render json: signup, status: :ok
         else
             render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 

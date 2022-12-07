@@ -5,7 +5,7 @@ import Home from './Home';
 import SponsorshipCard from './SponsorshipCard';
 // import NavBar from './NavBar'
 import SponsorsContainer from './SponsorsContainer';
-import { BrowserRouter as Router } from "react-router-dom";
+import { useNavigate, BrowserRouter as Router } from "react-router-dom";
 import LoginForm from './LoginForm'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AuthenticationContext from './AuthenticationContext';
@@ -13,42 +13,34 @@ import Profile from './Profile'
 
 function App() {
   const [sponsors, setSponsors] = useState([]);
-  // const [sponsorships, setSponsorships] = useState([]);
   const [addedSponsorships, setAddedSponsorships] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentUser, setCurrentUser] = useState(null);
 
-  // useEffect(() => {
+  const navigate = useNavigate();
 
-  //   fetch("/sponsorships")
-  //     .then(data => data.json())
-  //     .then(sponsorships => setSponsorships(sponsorships))
-
-  //   fetch("/signups")
-  //     .then(data => data.json())
-  //     .then(signups => setAddedSponsorships(signups))
-  // }, [])
-
-  const handleLogin = (user) => {
-    setCurrentUser(user)
-    setIsAuthenticated(true)
-  }
-
+  useEffect(() => {
+    let cookieValue = document.cookie.split('; ').find((row) => row.startsWith('current_user='))
+    cookieValue = (cookieValue && cookieValue.split('=')[1]) || null
+    if (!cookieValue) {
+      return cookieValue;
+    }
+    const user = JSON.parse(decodeURIComponent(cookieValue))
+    setCurrentUser(user);
+    setIsAuthenticated(true);
+  }, [document.cookie])
 
   return (
-    <AuthenticationContext.Provider value={ { currentUser, isAuthenticated } }>
-      <Router>
+    <AuthenticationContext.Provider value={{ currentUser, isAuthenticated }}>
         <div className="App">
-          {/* <NavBar /> */}
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/sponsors" element={<SponsorsContainer sponsors={sponsors} setSponsors={setSponsors} addedSponsorships={addedSponsorships} />} />
             <Route path="/sponsorships" element={<SponsorshipCard />} />
-            <Route path="/login" element={<LoginForm onLogin={handleLogin} />} />
-            <Route path="/me" element={<Profile  />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/me" element={<Profile />} />
           </Routes>
         </div>
-      </Router>
     </AuthenticationContext.Provider>
   );
 }
