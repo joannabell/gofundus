@@ -1,0 +1,29 @@
+.profile-page {
+    margin: 20px;
+    margin-top: 30px
+}
+
+.profile-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 1% 10%;
+}
+
+.profile-page h2 {
+    height: 25px;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: #989797;
+    padding: 10%;
+    font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+}
+
+.profile-page .search-bar input {
+    margin: 0px;
+    margin-bottom: 20px;
+}
