@@ -8,6 +8,8 @@
     - email
     - sponsorships container (now with a "-" button to delete)
 * Cloudinary for images (reach).
+* Make "start sponsoring..." a link
+* Finish filter/form drop down persistence
 
 DEBUG
 * Sessions controller skip before action error

@@ -4,11 +4,11 @@ import "./NewSponsorship.css"
 
 function dynamicSort(property) {
     var sortOrder = 1;
-    if(property[0] === "-") {
+    if (property[0] === "-") {
         sortOrder = -1;
         property = property.substr(1);
     }
-    return function (a,b) {
+    return function (a, b) {
         var result = (a[property] < b[property]) ? -1 : (a[property] > b[property]) ? 1 : 0;
         return result * sortOrder;
     }
@@ -60,8 +60,8 @@ export default function NewSponsorship({ sponsorships, setSponsorships }) {
                 <select name="shelter" value={formData.shelter} onChange={handleFormChange}>
                     <option>Shelter</option>
                     <option value="Bethlehem Inn">Bethlehem Inn</option>
-                    <option value="Bethlehem Inn">Bethlehem Inn</option>
-                    <option value="Bethlehem Inn">Bethlehem Inn</option>
+                    <option value="Bethlehem Inn">The Lighthouse</option>
+                    <option value="Bethlehem Inn">Shepherd's House</option>
                 </select>
                 <input type="text" name="image" id="image" value={formData.image} onChange={handleFormChange} placeholder="Image..." />
                 <input type="submit" value="Create" id="create" />
