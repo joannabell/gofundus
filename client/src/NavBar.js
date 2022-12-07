@@ -20,9 +20,13 @@ function NavBar() {
                                 <NavLink className="link" to="/register">Register</NavLink>
                                 <NavLink className="link" to="/login">Login</NavLink>
                             </>
-                            : null
+                            : 
+                            <>
+                                <NavLink className="link" to="/me">Profile</NavLink>
+                            </>
                         }
                         <NavLink className="link" to="/sponsorships">Sponsorships</NavLink>
+                        <NavLink className="link" to="/">LogOut</NavLink>
                     </div>
                 </div>
             )}
