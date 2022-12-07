@@ -7,15 +7,16 @@
     - welcome message
     - email
     - sponsorships container (now with a "-" button to delete)
+* Cloudinary for images (reach).
 
 DEBUG
 * Sessions controller skip before action error
+* Remove "+" from logged in user on Profile page
 * Basic validation to assure password isn't "" and maybe some minimum length in User model.
 
 STRETCH GOALS
 * Write most critical tests.
     - I've never created one but def want to learn
-* Cloudinary for images (reach).
 
 DONE
 * Make sure we have records in our DB to show off app!
