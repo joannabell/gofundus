@@ -38,6 +38,7 @@ function App() {
             <Route path="/sponsors" element={<SponsorsContainer sponsors={sponsors} setSponsors={setSponsors} addedSponsorships={addedSponsorships} />} />
             <Route path="/sponsorships" element={<SponsorshipCard />} />
             <Route path="/login" element={<LoginForm />} />
+            {/* <Route path="/register" element={<SignupForm />} /> */}
             <Route path="/me" element={<Profile />} />
           </Routes>
         </div>
