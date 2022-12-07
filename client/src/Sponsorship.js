@@ -34,7 +34,7 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
                     <h3>{name}</h3>
                     {/* <img src={image} alt="Sponsorship Card" /> */}
 
-                    <div className="sponsorship-flex">
+                    <div className="sponsorship">
                         <p>Shelter: <span>{shelter}</span></p>
                         <p>Needs: <span>{needs}</span> </p>
                         <button ref={target} className="button-6" onClick={() => handleAddSponsorship(isAuthenticated)}>+</button>

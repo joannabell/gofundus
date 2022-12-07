@@ -4,7 +4,7 @@ import "./SponsorshipCard.css";
 import Sponsorship from "./Sponsorship";
 import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
-import NavBar from "./NavBar"
+import NavBar from "./NavBar";
 
 export default function SponsorshipCard() {
     const [showForm, setShowForm] = useState(false)
@@ -21,14 +21,11 @@ export default function SponsorshipCard() {
         <>
             <div className="sponsorship-page">
                 <NavBar />
-                <div className="">
-
-                </div>
-                <div className="sponsorship-fx">
-                    <div className="sponsorship-fx-left">
+                <div className="sponsorship-container">
+                    <div className="sponsorship-search">
                         <Search handleSearchChange={setSearchValue} searchValue={searchValue} />
                     </div>
-                    <div className="sponsorship-fx-right">
+                    <div className="sponsorship-display">
                         {sponsorships.filter(s => {
                             return s.name.toLowerCase().includes(searchValue.toLowerCase());
                         }).map(s => <Sponsorship sponsorship={s} key={s.id}></Sponsorship>)}

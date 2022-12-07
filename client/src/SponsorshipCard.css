@@ -3,13 +3,7 @@
     margin-top: 30px
 }
 
-.sponsorship-list {
-    display: flex;
-    flex-wrap: wrap;
-    margin-top: 30px;
-}
-
-.sponsorship-fx-right {
+.sponsorship-display {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
