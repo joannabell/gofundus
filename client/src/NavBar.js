@@ -10,9 +10,7 @@ function NavBar() {
             {({ currentUser, isAuthenticated }) => (
                 <div className="navbar">
                     <NavLink to="/">
-                        <button>
-                            <img className="img-responsive" src={logo} alt="logo" />
-                        </button>
+                        <img onClick={"/"} className="img-responsive" src={logo} alt="logo" />
                     </NavLink>
                     <div className="nav-links">
                         {!isAuthenticated ?
