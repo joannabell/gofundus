@@ -35,7 +35,7 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
                     {/* <img src={image} alt="Sponsorship Card" /> */}
 
                     <div className="sponsorship">
-                        <p>Shelter: <span>{shelter}</span></p>
+                        <p>About: <span>{image}</span></p>
                         <p>Needs: <span>{needs}</span> </p>
                         <button ref={target} className="button-6" onClick={() => handleAddSponsorship(currentUser)}>+</button>
                         {show ?
