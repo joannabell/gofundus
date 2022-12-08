@@ -10,7 +10,8 @@ class SignupsController < ApplicationController
 
     def create
         signup = Signup.new(signup_params)
-        if (signup.user == current_user) && signup.create                       
+        binding.pry
+        if (signup.user == current_user) && signup.create                  
             render json: signup, status: :created
         else
             render json: signup&.errors || { error: 'Record not found' }, status: :unprocessable_entity 
@@ -39,6 +40,6 @@ class SignupsController < ApplicationController
     
     def signup_params
         # TODO: figure out #permit args
-        params.require([:user_id, :sponsorship_id])
+        params.require(:signup).permit(:sponsorship_id, :user_id)
     end
 end

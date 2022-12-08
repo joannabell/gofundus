@@ -11,10 +11,10 @@
 * Make "start sponsoring..." a link
 * Finish filter/form drop down persistence
 
-DEBUG
+DEBUG (this is what I worked on today)
 * Sessions controller skip before action error
-* Remove "+" from logged in user on Profile page
 * Basic validation to assure password isn't "" and maybe some minimum length in User model.
+* Remove "+" from logged in user on Profile page
 
 STRETCH GOALS
 * Write most critical tests.

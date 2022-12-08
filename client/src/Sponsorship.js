@@ -8,8 +8,8 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
     const target = useRef(null);
     const [show, setShow] = useState(false);
 
-    function handleAddSponsorship(isAuthenticated) {
-        if (!isAuthenticated) {
+    function handleAddSponsorship(currentUser) {
+        if (!currentUser) {
             setShow(true);
         } else {
             fetch("/signups", {
@@ -19,7 +19,7 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
                 },
                 body: JSON.stringify({
                     sponsorship_id: id,
-                    user_id: id
+                    user_id: currentUser.id
                 }),
             })
                 .then((r) => r.json())
@@ -29,7 +29,7 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
 
     return (
         <AuthenticationContext.Consumer>
-            {({ isAuthenticated }) => (
+            {({ currentUser }) => (
                 <div className="sponsorship-card">
                     <h3>{name}</h3>
                     {/* <img src={image} alt="Sponsorship Card" /> */}
@@ -37,19 +37,19 @@ export default function Sponsorship({ sponsorship, currentShelter }) {
                     <div className="sponsorship">
                         <p>Shelter: <span>{shelter}</span></p>
                         <p>Needs: <span>{needs}</span> </p>
-                        <button ref={target} className="button-6" onClick={() => handleAddSponsorship(isAuthenticated)}>+</button>
-                        { show ?
-                        <Overlay target={target.current} show={show} placement="right">
-                            {(props) => (
-                                <Tooltip id="overlay-example" {...props}>
-                                    Please Login
-                                </Tooltip>
-                            )}
-                        </Overlay>
-                        : null }
+                        <button ref={target} className="button-6" onClick={() => handleAddSponsorship(currentUser)}>+</button>
+                        {show ?
+                            <Overlay target={target.current} show={show} placement="right">
+                                {(props) => (
+                                    <Tooltip id="overlay-example" {...props}>
+                                        Please Login
+                                    </Tooltip>
+                                )}
+                            </Overlay>
+                            : null}
                     </div>
                 </div>
-        )}
+            )}
         </AuthenticationContext.Consumer>
     )
 }

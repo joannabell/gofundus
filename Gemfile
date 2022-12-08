@@ -77,3 +77,7 @@ group :test do
 end
 
 gem 'bcrypt', '~> 3.1', '>= 3.1.12'
+
+gem "better_errors", "~> 2.9"
+
+gem "binding_of_caller", "~> 1.0"

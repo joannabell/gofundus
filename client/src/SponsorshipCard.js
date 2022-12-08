@@ -1,12 +1,13 @@
 import React from 'react';
-import { useState, useEffect } from "react"
+import { useState, useEffect } from "react";
 import "./SponsorshipCard.css";
 import Sponsorship from "./Sponsorship";
 import Search from "./Search";
 import NewSponsorship from "./NewSponsorship";
 import NavBar from "./NavBar";
+import FilterSponsorship from "./FilterSponsorship";
 
-export default function SponsorshipCard() {
+export default function SponsorshipCard({ needs, handleNeeds, shelter, handleShelter}) {
     const [showForm, setShowForm] = useState(false)
     const [sponsorships, setSponsorships] = useState([])
     const [searchValue, setSearchValue] = useState("")
