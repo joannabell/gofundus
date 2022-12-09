@@ -14,14 +14,25 @@
   font-size: 120px;
   font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   font-weight: 700;
+  display: block;
+  margin-bottom: -25px;
+}
+
+#home-page-container h2 {
+  height: 100%;
+  color: #02a95c;
+  font-size: 40px;
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+  font-weight: 70;
+  display: block;
+  margin-right: -400px;
 }
 
 #enter-btn {
   align-items: center;
   display: inline-block;
   position: relative;
-  margin-top: -5px;
-  margin: 50px 20px;
+  margin: 35px 15px 50px 17px;
   background-color: #fff;
   cursor: pointer;
   border-radius: 12px;
@@ -46,15 +57,17 @@
 #home-page-about-us-container h1 {
   font-weight: bold;
   color: black;
+  margin: -15px 15px 0px 15px;
 }
 
 #home-page-about-us-container h2 {
   color: black;
-  margin: 15px 140px;
+  margin: 5px 15px 10px 15px;
 }
 
 
 #home-page-about-us-container h4 a {
   color: #989797;
   margin: -7px 70px;
+  margin: 50px 15px 0px 15px;
 }
